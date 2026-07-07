@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HabitTracker</title>
+
+    <meta name="description" content="A simple, powerful habit tracking app.">
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="theme-color" content="#2457FF">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- HEADER -->
+
+    <header class="top-header">
+
+        <div class="logo-area">
+
+            <h1>
+                HabitTracker
+            </h1>
+
+            <p>
+                Build better habits every day
+            </p>
+
+        </div>
+
+
+        <button 
+            id="themeButton"
+            class="icon-button">
+            🌙
+        </button>
+
+    </header>
+
+
+    <!-- DAILY SUMMARY -->
+
+    <section class="summary-card">
+
+        <div class="summary-item">
+
+            <h3>
+                Today's Progress
+            </h3>
+
+            <span id="dailyProgress">
+                0%
+            </span>
+
+        </div>
+
+
+        <div class="summary-item">
+
+            <h3>
+                Current Streak
+            </h3>
+
+            <span id="currentStreak">
+                🔥 0
+            </span>
+
+        </div>
+
+
+        <div class="summary-item">
+
+            <h3>
+                Completed
+            </h3>
+
+            <span id="completedCount">
+                0
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+
+        <!-- TODAY PAGE -->
+
+        <section 
+            id="todayPage"
+            class="page active">
+
+
+            <div class="page-header">
+
+                <h2>
+                    Today's Habits
+                </h2>
+
+
+                <button 
+                    id="addHabitButton"
+                    class="primary-button">
+
+                    + Add Habit
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="search-area">
+
+                <input
+
+                    id="habitSearch"
+
+                    type="text"
+
+                    placeholder="Search habits..."
+
+                >
+
+
+            </div>
+
+
+
+            <div 
+                id="habitContainer"
+                class="habit-container">
+
+                <!-- Habits load here -->
+
+            </div>
+
+
+        </section>
+
+
+
+
+        <!-- CALENDAR PAGE -->
+
+
+        <section 
+            id="calendarPage"
+            class="page">
+
+
+            <div class="page-header">
+
+                <h2>
+                    Calendar
+                </h2>
+
+            </div>
+
+
+            <div 
+                id="calendarContainer">
+
+            </div>
+
+
+        </section>
+
+
+
+
+        <!-- STATISTICS PAGE -->
+
+
+        <section 
+            id="statsPage"
+            class="page">
+
+
+            <div class="page-header">
+
+                <h2>
+                    Statistics
+                </h2>
+
+            </div>
+
+
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Total Completions
+                    </h3>
+
+                    <p id="totalCompletions">
+                        0
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Best Streak
+                    </h3>
+
+                    <p id="bestStreak">
+                        0
+                    </p>
+
+                </div>
+
+
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Success Rate
+                    </h3>
+
+                    <p id="successRate">
+                        0%
+                    </p>
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div 
+                id="heatmapContainer">
+
+            </div>
+
+
+
+        </section>
+                <!-- ACHIEVEMENTS PAGE -->
+
+        <section
+            id="achievementsPage"
+            class="page">
+
+
+            <div class="page-header">
+
+                <h2>
+                    Achievements
+                </h2>
+
+            </div>
+
+
+            <div 
+                id="achievementContainer"
+                class="achievement-container">
+
+                <!-- Achievements load here -->
+
+            </div>
+
+
+        </section>
+
+
+
+
+
+        <!-- JOURNAL PAGE -->
+
+
+        <section
+            id="journalPage"
+            class="page">
+
+
+            <div class="page-header">
+
+                <h2>
+                    Daily Journal
+                </h2>
+
+            </div>
+
+
+
+            <textarea
+
+                id="journalInput"
+
+                placeholder="Write about your day..."
+
+            ></textarea>
+
+
+
+            <button
+
+                id="saveJournalButton"
+
+                class="primary-button">
+
+                Save Journal
+
+            </button>
+
+
+            <div
+
+                id="journalHistory">
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+        <!-- SETTINGS PAGE -->
+
+
+        <section
+
+            id="settingsPage"
+
+            class="page">
+
+
+            <div class="page-header">
+
+                <h2>
+                    Settings
+                </h2>
+
+            </div>
+
+
+
+
+            <div class="settings-card">
+
+
+                <h3>
+                    Appearance
+                </h3>
+
+
+                <label>
+
+                    Dark Mode
+
+                    <input
+
+                        type="checkbox"
+
+                        id="darkModeToggle"
+
+                    >
+
+                </label>
+
+
+
+                <label>
+
+                    Large Text
+
+                    <input
+
+                        type="checkbox"
+
+                        id="largeTextToggle"
+
+                    >
+
+                </label>
+
+
+
+            </div>
+
+
+
+
+            <div class="settings-card">
+
+
+                <h3>
+                    Data
+                </h3>
+
+
+
+                <button
+
+                    id="exportButton"
+
+                    class="secondary-button">
+
+                    Export Backup
+
+                </button>
+
+
+
+                <button
+
+                    id="importButton"
+
+                    class="secondary-button">
+
+                    Import Backup
+
+                </button>
+
+
+
+                <input
+
+                    id="importFile"
+
+                    type="file"
+
+                    accept=".json"
+
+                    hidden
+
+                >
+
+
+
+            </div>
+
+
+
+
+            <div class="settings-card">
+
+
+                <h3>
+                    Templates
+                </h3>
+
+
+
+                <button
+
+                    id="morningTemplate"
+
+                    class="secondary-button">
+
+                    Morning Routine
+
+                </button>
+
+
+
+                <button
+
+                    id="fitnessTemplate"
+
+                    class="secondary-button">
+
+                    Fitness Routine
+
+                </button>
+
+
+
+                <button
+
+                    id="schoolTemplate"
+
+                    class="secondary-button">
+
+                    School Routine
+
+                </button>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+    </main>
+
+
+
+
+
+    <!-- BOTTOM NAVIGATION -->
+
+
+    <nav class="bottom-navigation">
+
+
+        <button
+
+            class="nav-button active"
+
+            data-page="todayPage">
+
+
+            🏠
+
+            <span>
+                Today
+            </span>
+
+
+        </button>
+
+
+
+
+        <button
+
+            class="nav-button"
+
+            data-page="calendarPage">
+
+
+            📅
+
+            <span>
+                Calendar
+            </span>
+
+
+        </button>
+
+
+
+
+        <button
+
+            class="nav-button"
+
+            data-page="statsPage">
+
+
+            📊
+
+            <span>
+                Stats
+            </span>
+
+
+        </button>
+
+
+
+
+        <button
+
+            class="nav-button"
+
+            data-page="achievementsPage">
+
+
+            🏆
+
+            <span>
+                Awards
+            </span>
+
+
+        </button>
+
+
+
+
+        <button
+
+            class="nav-button"
+
+            data-page="settingsPage">
+
+
+            ⚙️
+
+            <span>
+                Settings
+            </span>
+
+
+        </button>
+
+
+
+    </nav>
+       <!-- ADD HABIT MODAL -->
+
+    <div 
+        id="habitModal"
+        class="modal">
+
+
+        <div class="modal-content">
+
+
+            <button
+
+                id="closeHabitModal"
+
+                class="close-button">
+
+                ✕
+
+            </button>
+
+
+
+            <h2>
+                Create Habit
+            </h2>
+
+
+
+            <input
+
+                id="habitName"
+
+                type="text"
+
+                placeholder="Habit name"
+
+            >
+
+
+
+            <input
+
+                id="habitIcon"
+
+                type="text"
+
+                placeholder="Emoji icon (example: 🏀)"
+
+            >
+
+
+
+            <select
+
+                id="habitCategory">
+
+
+                <option value="Health">
+                    Health
+                </option>
+
+
+                <option value="Sports">
+                    Sports
+                </option>
+
+
+                <option value="School">
+                    School
+                </option>
+
+
+                <option value="Personal">
+                    Personal
+                </option>
+
+
+                <option value="Custom">
+                    Custom
+                </option>
+
+
+            </select>
+
+
+
+
+            <select
+
+                id="habitFrequency">
+
+
+                <option value="daily">
+                    Every Day
+                </option>
+
+
+                <option value="weekdays">
+                    Weekdays
+                </option>
+
+
+                <option value="weekly">
+                    Weekly
+                </option>
+
+
+            </select>
+
+
+
+
+
+            <textarea
+
+                id="habitNotes"
+
+                placeholder="Notes about this habit..."
+
+            ></textarea>
+
+
+
+
+
+            <button
+
+                id="saveHabitButton"
+
+                class="primary-button">
+
+
+                Create Habit
+
+
+            </button>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- CONFETTI CONTAINER -->
+
+
+    <div
+
+        id="confettiContainer">
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                navigator.serviceWorker.register(
+                    "service-worker.js"
+                );
+
+            }
+        );
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html> 
