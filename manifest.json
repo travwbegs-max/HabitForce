@@ -1,0 +1,25 @@
+{
+  "name": "HabitTracker",
+  "short_name": "Habits",
+  "description": "A simple and powerful habit tracking app for building better daily routines.",
+  
+  "start_url": "./index.html",
+  
+  "display": "standalone",
+  
+  "orientation": "portrait",
+  
+  "background_color": "#FFFFFF",
+  
+  "theme_color": "#2457FF",
+
+  "lang": "en-US",
+
+  "categories": [
+    "productivity",
+    "health",
+    "lifestyle"
+  ],
+
+  "icons": []
+}
