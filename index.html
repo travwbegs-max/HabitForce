@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HabitTracker</title>
+
+
+<link rel="manifest" href="manifest.json">
+
+
+<link rel="stylesheet" href="styles.css">
+
+
+<meta name="theme-color" content="#2457FF">
+
+
+</head>
+
+
+
+<body>
+
+
+<div id="loadingScreen">
+
+    Loading HabitTracker...
+
+</div>
+
+
+
+
+
+<header>
+
+
+    <h1>
+        🔥 HabitTracker
+    </h1>
+
+
+    <p>
+        Build better habits every day
+    </p>
+
+
+</header>
+
+
+
+
+
+
+
+<main>
+
+
+
+<section class="dashboard">
+
+
+    <div class="stat-box">
+
+
+        <h2 id="totalHabits">
+            0
+        </h2>
+
+
+        <p>
+            Habits
+        </p>
+
+
+    </div>
+
+
+
+    <div class="stat-box">
+
+
+        <h2>
+            🔥
+            <span id="currentStreak">
+                0
+            </span>
+        </h2>
+
+
+        <p>
+            Best Streak
+        </p>
+
+
+    </div>
+
+
+
+    <div class="stat-box">
+
+
+        <h2 id="completionRate">
+            0%
+        </h2>
+
+
+        <p>
+            Completion
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="controls">
+
+
+<h2>
+    Add Habit
+</h2>
+
+
+
+<input
+
+id="habitName"
+
+placeholder="Habit name"
+
+/>
+
+
+
+<select id="habitCategory">
+
+
+<option>
+Health
+</option>
+
+
+<option>
+Sports
+</option>
+
+
+<option>
+School
+</option>
+
+
+<option>
+Personal
+</option>
+
+
+</select>
+
+
+
+
+
+<button onclick="addHabitFromForm()">
+
+    Add Habit
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+    Search
+</h2>
+
+
+<input
+
+id="searchInput"
+
+placeholder="Search habits..."
+
+oninput="searchHabits()"
+
+/>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+    Your Habits
+</h2>
+
+
+<div id="habitList">
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="tools">
+
+
+<h2>
+    Tools
+</h2>
+
+
+
+<button onclick="exportBackup()">
+
+Export Backup
+
+</button>
+
+
+
+
+<button onclick="requestNotifications()">
+
+Enable Notifications
+
+</button>
+
+
+
+
+
+<button onclick="ThemeManager.toggle()">
+
+Toggle Dark Mode
+
+</button>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+    Progress
+</h2>
+
+
+<div class="progress-card">
+
+
+<p>
+
+Total Completed:
+
+<span id="totalCompleted">
+
+0
+
+</span>
+
+</p>
+
+
+
+<p>
+
+This Week:
+
+<span id="weeklyCompleted">
+
+0
+
+</span>
+
+</p>
+
+
+
+<p>
+
+This Month:
+
+<span id="monthlyCompleted">
+
+0
+
+</span>
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<div id="toastContainer">
+
+</div>
+
+
+
+
+
+
+
+
+
+<script src="js/data.js"></script>
+
+<script src="js/storage.js"></script>
+
+<script src="js/statistics.js"></script>
+
+<script src="js/notifications.js"></script>
+
+<script src="js/export.js"></script>
+
+<script src="js/import.js"></script>
+
+<script src="js/achievements.js"></script>
+
+<script src="js/profiles.js"></script>
+
+<script src="js/categories.js"></script>
+
+<script src="js/theme.js"></script>
+
+<script src="js/reminders.js"></script>
+
+<script src="js/goals.js"></script>
+
+<script src="js/friends.js"></script>
+
+<script src="js/streaks.js"></script>
+
+<script src="js/search.js"></script>
+
+<script src="js/ui.js"></script>
+
+<script src="js/security.js"></script>
+
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+</html>
